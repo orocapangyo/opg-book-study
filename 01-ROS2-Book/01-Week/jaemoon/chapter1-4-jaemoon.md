@@ -1,7 +1,7 @@
 **WEEK1 ROS2 Chaptor (1-4)**
 ==================
 ###### (챕터 별 중요한 내용 및 궁금한 사항 위주로 정리했습니다)  
-<br>
+
 
 > ## **1. ROS2 소개**
 + 로봇 응용 프로그램을 개발하기 위해 로봇에 특화된 다양한 개발환경을 제공하는 로봇 소프트웨어 플랫폼이자 로봇 소프트웨어 개발을 위한 툴
@@ -15,12 +15,12 @@
   + <span style="color:darkorange">**강력한 시각화 도구 :**</span> RVis 도구 사용. RVis를 사용하여 로봇의 센서 데이터나 제어 명령 등을 시각적으로 확인하거나 디버깅등의 작업 가능
   + <span style="color:darkorange">**네트워크 기능 :**</span> 여러대의 컴퓨터나 분산된 디바이스와 효율적인 데이터 전송 가능
   + <span style="color:darkorange">**활발한 커뮤니티 :**</span> ROS 커뮤니티를 통해 전 세계 다양한 로봇 소프트웨어 개발자들이 지속적으로 ROS를 발전시켜 나가고 있음.
-<br>
-<br>
+
 + <span style="color:red">**[Q]**</span> 현재 Ubuntu 20.04 LTS를 기반으로 ROS 2를 설치했는데 Ubuntu 최신 버전을 설치할 경우 ROS 2 소프트웨어가 제대로 실행되지 않거나 하는 이슈가 있을까요?
 + <span style="color:red">**[Q]**</span> 다른 로봇 소프트웨어를 사용해본 적이 없어서 경험자분들의 의견이 궁금합니다.
-<br>
-<br>
+
+
+
 > ## **2. ROS2 기반 로봇 개발에 필요한 정보**  
 
 + ROS 커뮤니티 게시판 (https://discourse.ros.org/)
@@ -35,15 +35,13 @@
 + ROS 질의응답 페이지 (https://answers.ros.org/questions/)
 + ROS 통계 자료 (https://metrics.ros.org/)
 + ROS 커뮤니티 중요 소식 (https://planet.ros.org/)
-<br>
-<br>
+
 > ## **3. ROS 2 개발환경 구축**
 + Ubuntu 20.04.6 LTS (Focal Fossa) (https://releases.ubuntu.com/focal/)
 + Ubuntu Install tutorials (https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview)
 + balenaEtcher - Bootable USB stick (https://www.balena.io/etcher)
 + ROS2 Debians Package (https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-<br>
-<br>
+
 + **설치 과정에서 겪은 내용 공유** (설치 오류로 인해 이후 Run commands 설정, IDE 진행 노력중!)
   + ROS 2 패키지를 설치하는 과정에서 아래와 같은 오류 메시지를 받았습니다.  
    $ sudo apt install ros-foxy-desktop ros-foxy-rmw-fastrtps* ros-foxy-rmw-cyclonedds*  
@@ -53,7 +51,6 @@
   No mudule named pip 의 답변을 계속 받습니다.
   
   
-<br>
 
 > ## **4. 왜? ROS2로 가야하는가?**
   > **ROS와 비교했을때 ROS2의 차별점**  
