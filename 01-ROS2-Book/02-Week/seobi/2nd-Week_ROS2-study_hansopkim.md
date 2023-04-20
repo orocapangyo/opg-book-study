@@ -13,14 +13,6 @@ theme: gaia
 
 ---
 
-<!-- _class: invert lead -->
-
-> In Greek mythology, **Gaia** also spelled **Gaea**, was the personification of the Earth and one of the Greek primordial deities.
->
-> — *[Gaia (mythology) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gaia_%28mythology%29)*
-
----
-
 <!-- paginate: true -->
 
 # 5. Why ROS 2?
@@ -71,6 +63,15 @@ theme: gaia
 
 # 7. ROS2 and DDS
 
+: install package of RMW
+
+![bg 100% right](0.png)
+
+
+---
+
+# 7. ROS2 and DDS
+
 : DDS test with publisher and subscriber node
 ```
 ros2 run demo_nodes_cpp listener
@@ -78,6 +79,8 @@ ros2 run demo_nodes_cpp talker
 rqt_graph
 
 ```
+![bg 75% vertical right](1.png)
+![bg 75% vertical right](2.png)
 
 ---
 
@@ -94,6 +97,9 @@ ros2 run demo_nodes_cpp talker
 ```
 export ROS_DOMAIN_ID=11
 ```
+![bg 70% vertical right](3.png)
+![bg 70% vertical right](4.png)
+![bg 70% vertical right](5.png)
 
 ---
 
@@ -111,6 +117,7 @@ sudo tc qdisc delete dev lo root netem loss 10%
 ros2 run demo_nodes_cpp listener_best_effort
 ros2 run demo_nodes_cpp talker
 ```
+![bg 100% right](6.png)
 
 ---
 # 8. DDS of QoS
@@ -126,17 +133,115 @@ ros2 run demo_nodes_cpp talker
 
 # 8. DDS of QoS
 
-: QoS Test
+### History
+1. Value
+: KEEP_LAST / KEEP_ALL
+2. RxO(Requested by Offered)
+3. Example
+
 ```
-sudo tc qdisc add dev lo root netem loss 10%
-ros2 run demo_nodes_cpp listener
-ros2 run demo_nodes_cpp talker
-sudo tc qdisc delete dev lo root netem loss 10%
-```
-: Reliability BEST_EFFORT
-```
-ros2 run demo_nodes_cpp listener_best_effort
-ros2 run demo_nodes_cpp talker
+[RCLCPP]
+rclcpp::QoS(rclcpp::KeepLast(10));
+[RCLPY]
+qos_profile = QoSProfile(history=QoSHistoryPolicy.KEEP_LAST, depth=10)
 ```
 
 ---
+# 8. DDS of QoS
+
+### Reliability
+1. Value
+: BEST_EFFORT / RELIABLE
+2. RxO(Requested by Offered)
+3. Example
+```
+[RCLCPP]
+rclcpp::QoS(rclcpp::KeepAll).best_effort();
+[RCLPY]
+qos_profile = QoSProfile(reliability=QoSReliabilityPolicy.BEST_EFFORT)
+```
+
+---
+# 8. DDS of QoS
+
+### Durability
+1. Value
+: TRANSIENT_LOCAL / VOLATILE
+2. RxO(Requested by Offered)
+3. Example
+```
+[RCLCPP]
+rclcpp::QoS(rclcpp::KeepAll).transient_local();
+[RCLPY]
+qos_profile = QoSProfile(durability=QoSDurabilityPolicy.TRANSIENT_LOCAL)
+```
+
+---
+
+# 8. DDS of QoS
+
+### Deadline
+1. Value
+: deadline_duration
+2. RxO(Requested by Offered)
+3. Example
+```
+[RCLCPP]
+rclcpp::QoS(10).deadline(100ms);
+[RCLPY]
+qos_profile = QoSProfile(depth=10, deadline=Duration(0.1))
+```
+
+---
+# 8. DDS of QoS
+
+### Lifespan
+1. Value
+: lifespan_duration
+2. RxO(Requested by Offered)
+3. Example
+```
+[RCLCPP]
+rclcpp::QoS(10).reliable().transient_local().lifespan(10ms);
+[RCLPY]
+qos_profile = QoSProfile(lifespan=Duration(0.01))
+```
+
+---
+# 8. DDS of QoS
+
+### Liveliness
+1. Value
+: liveliness / lease_duration
+2. RxO(Requested by Offered)
+3. Example
+```
+[RCLCPP]
+rclcpp::QoS qos_profile(10);
+qos_profile.liveliness(RMW_QOS_POLICY_LIVELINESS_AUTOMATIC).liveliness_lease_duration(1000ms);
+[RCLPY]
+qos_profile = QoSProfile(liveliness=AUTOMATIC, liveliness_lease_duration=Duration(1.0))
+```
+
+---
+# 8. DDS of QoS
+
+### rmw_qos_profile
+
+<style scoped>
+table {
+height: 50%;
+width: 100%;
+font-size: 70%;
+color: blue;
+}
+th {
+    color: yellow;
+}
+</style>
+| Tables        | Default | Sensor Data | Service | Action Status | Parameters | Parameter Event  |
+| ------------- | :-----: | :---------: | :-----: | :-----------: | :--------: | :--------------: |
+| Reliability   |RELIABLE | BEST_EFFORT |RELIABLE | RELIABLE      | RELIABLE   | RELIABLE         |
+| History       |KEEP_LAST| KEEP_LAST   |KEEP_LAST| KEEP_LAST     | KEEP_LAST  | KEEP_LAST        |
+| Depth         | 10      | 5           | 10      | 1             | 1.000      | 1.000            |
+| Durability    |VOLATILE | VOLATILE    |VOLATILE |TRANSIENT LOCAL| VOLATILE   | VOLATILE         |
