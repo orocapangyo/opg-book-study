@@ -70,7 +70,7 @@ ros2 topic echo /turtle1/cmd_vel
 
 ---
 
-# 12. ROS2 서버스
+# 12. ROS2 서비스
 
 
 ```
@@ -81,7 +81,7 @@ ros2 topic echo /turtle1/cmd_vel
 
 ---
 
-# 12. ROS2 서버스
+# 12. ROS2 서비스
 ```
 서비스 목록 확인
 ros2 service list
