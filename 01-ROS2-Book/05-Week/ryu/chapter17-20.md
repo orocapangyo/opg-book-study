@@ -7,35 +7,36 @@
 ## ROS2 CLI 종류와 각 sub-verbs의 기능
 
    - ROS2실행명령어: ros2 run, ros2 launch
-     '''bash
+     ```bash
      ros2 run turtlesim turtlesim_node
      ros2 run turtlesim turtle_teleop_key
-     '''
+     ```
 
    - ROS2 정보명령어: 
-     '''bash
+     ```bash
      ros2 topic echo /turtle1/cmd_vel
+     ```
      ![Screenshot from 2023-05-18 22-18-40](https://github.com/orocapangyo/opg-book-study/assets/22469193/b4460c90-fcda-47e5-a3d5-5b25c605a121)
 
-     '''
-     '''bash
+     
+     ```bash
      ros2 interface show turtlesim/srv/Spawn
-     '''
+     ```
 
    - ROS2 기능보조 명령어
-     '''bash
+     ```bash
      ros2 run rclcpp_components component_container
      ros2 component list
      ros2 component load /ComponentManager composition composition::Talker
-     '''
+     ```
      ![Screenshot from 2023-05-18 22-39-13](https://github.com/orocapangyo/opg-book-study/assets/22469193/45fca507-493d-4ff8-8767-8550bcc1b387)
 
-     '''bash
+     ```bash
      ros2 security create_keystore demo_keys
      ros2 security create_enclave demo_keys /talker_listener/listener
+     ```
      ![Screenshot from 2023-05-18 22-48-58](https://github.com/orocapangyo/opg-book-study/assets/22469193/dc393d6b-b378-42a9-95ef-6686df4b3a8e)
-
-     '''
+     
  
 
 # ROS2 GUI 개발을 위한 RQt
