@@ -259,7 +259,8 @@ ntpdate timeserver
 
 ## 빌드 설정 파일(CMakeLists.txt)
 
-    ROS2의 빌드시스템인 ament에서는 C++언어를 사용한 패키지나 RQt Plugin의 경우 CMake를 이용하고 있고 패키지 폴더의 CMakeLists.txt 파일에 빌드환경을 기술해 사용하고 있다. 이 빌드 설정파일에 실행파일 생성, 의존성 패키지 우선빌드, 
+    ROS2의 빌드시스템인 ament에서는 C++언어를 사용한 패키지나 RQt Plugin의 경우 CMake를 이용하고 있고 패키지 폴더의
+    CMakeLists.txt 파일에 빌드환경을 기술해 사용하고 있다. 이 빌드 설정파일에 실행파일 생성, 의존성 패키지 우선빌드,
     링크생성 등을 설정한다.
 
 
