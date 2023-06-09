@@ -129,15 +129,16 @@ colcon build --symlink-install --packages-select topic_service_action_rclpy_exam
 ## 실행
 
 ### 토픽 퍼블리셔
-
+![6 실행(topicpubli)](https://github.com/orocapangyo/opg-book-study/assets/22469193/b2f59425-a3b1-441a-ae84-2731610024e7)
 
 ### 서비스 클라이언트
-
+![6 servicecli](https://github.com/orocapangyo/opg-book-study/assets/22469193/95c3d8f1-2e73-4af3-9bbd-06d971514b16)
 
 ### 액션 클라이언트 
-
+![6 실행(actioncli)](https://github.com/orocapangyo/opg-book-study/assets/22469193/e319d0f4-cdee-4b6e-8167-d7c402e35d6b)
 
 ### 런치 파일
+![6 launch](https://github.com/orocapangyo/opg-book-study/assets/22469193/2788eb5e-d05c-4728-bd15-e4a6d8826241)
 
 
 # 토픽 프로그래밍(파이썬)
